@@ -1,0 +1,149 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Scripts/jquery-2.1.0.min.js"></script>
+</head>
+<body>
+    <style>
+        .container {
+            background-color: gainsboro;
+            border: thick solid #808080;
+            border-width: 1px;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            text-decoration: none;
+            word-wrap: break-word;
+            display: inline-block;
+            margin: 5px;
+            width: 98%;
+        }
+
+        input[type=text] {
+            height: 25px;
+            border-width: 1px;
+            font-size: 13pt;
+            width: 100%;
+            color: grey;
+        }
+
+        .arrow {
+            margin: 0;
+            margin-top: 2px;
+            width: 10px;
+            -webkit-text-stroke: 1px white;
+            color: white;
+        }
+
+        .arrowright {
+            -webkit-transform: rotate(90deg);
+            float: right;
+        }
+
+        .arrowleft {
+            -webkit-transform: rotate(270deg);
+            float: left;
+        }
+
+        .label {
+            margin-right: 5px;
+        }
+
+        .name {
+            margin: 1px;
+        }
+
+        .message {
+            float: left;
+            width: 80%;
+        }
+
+        .content {
+            word-wrap: break-word;
+            background-color: white;
+            font-size: 10pt;
+            font-family: arial,sans-serif;
+            padding: 5px;
+            box-shadow: 1px 1px 5px #888888;
+            max-width: 70%;
+        }
+
+        .left {
+            float: left;
+        }
+
+        .right {
+            float: right;
+        }
+
+        .timeStamp {
+            font-size: 6pt;
+            color: grey;
+            margin-top: 7px;
+        }
+
+        .controls {
+            width: 15%;
+            height: 37px;
+            color: grey;
+        }
+
+        .close {
+            text-align: center;
+            margin: 30%;
+            font-size: 13pt;
+            font-family: sans-serif;
+            font-weight: bold;
+        }
+
+        .minimize {
+            
+        }
+
+        .controls:hover {
+            background-color: grey;
+            color: black;
+            cursor: pointer;
+        }
+    </style>
+    <input type="hidden" id="txtUser" value="gus" />
+    <div class="container" style="width: 250px; float: left;">
+        <div style="height: 37px; width: 100%; background-color: black; border-bottom-color: green; border-bottom-style: solid; border-bottom-width: 6px">
+            <div class="right controls">
+                <div class="close">X</div>
+            </div>
+            <div class="right controls">
+                <div class="minimize close">_</div>
+            </div>
+            <div style="width: 70%; height: 37px"></div>
+        </div>
+        <div id="contentMessages" style="width: 100%; overflow-x: hidden; overflow-y: auto; height: 250px">
+            <ul id="messages"></ul>
+        </div>
+        <div style="width: 98%;">
+            <input type="text" id="txtMessage" placeholder="Enter text" />
+        </div>
+    </div>
+    <script>
+
+        $('#txtUser').val(prompt('Enter your name:', ''));
+        // Set initial focus to message input box.  
+        $('#txtMessage').focus();
+    </script>
+</body>
+<script src="~/Scripts/jquery.signalR-2.0.2.min.js"></script>
+<!-- ReSharper disable Html.PathError this will generate in run time. -->
+<script src="../signalr/hubs"></script>
+<script src="~/Scripts/chat.js"></script>
+</html>
